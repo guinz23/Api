@@ -1,153 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>index</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-<!-- Navigation -->
-<div class="fixed-top">
-        <header class="topbar">
-            <div class="container">
-              <div class="row">
-                <!-- social icon-->
-                <div class="col-sm-12">
-                  <ul class="social-network">
-                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
+    <head>
+        <title>
+            index
+        </title>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+                    <link href="css/style.css" rel="stylesheet">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+                        </script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js">
+                        </script>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js">
+                        </script>
+                    </link>
+                </link>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <div class="fixed-top">
+            <header class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <!-- social icon-->
+                        <div class="col-sm-12">
+                            <ul class="social-network">
+                                <li>
+                                    <a class="waves-effect waves-dark" href="#">
+                                        <i class="fa fa-facebook">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="waves-effect waves-dark" href="#">
+                                        <i class="fa fa-twitter">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="waves-effect waves-dark" href="#">
+                                        <i class="fa fa-linkedin">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="waves-effect waves-dark" href="#">
+                                        <i class="fa fa-pinterest">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="waves-effect waves-dark" href="#">
+                                        <i class="fa fa-google-plus">
+                                        </i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-      
-              </div>
-            </div>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-          <div class="container">
-            <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> UNIX.COMPANY</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-      
-              <ul class="navbar-nav ml-auto">
-      
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Usuarios</a>
-                </li>
-      
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Clientes</a>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Suport ticket</a>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contactos</a>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Reuniones</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"></a>
-                </li>
-              </ul>
-              
-            </div>
-          </div>
-        </nav>
-      </div>
-      
-<div class="container">        
-
-
-  <table  id="table" class="table table-dark">
-    <thead>
-      <tr>
-          <th>id</th>
-        <th>Name</th>
-        <th>Lastname</th>
-        <th>phone</th>
-        <th>Email</th>
-        <th>funciones</th>
-      </tr>
-    </thead>
-    <tbody id="clientes">
-      
-    </tbody>
-  </table>
-
-  
-</div>
-
-<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h3 class="modal-title" id="lineModalLabel">Clientes</h3>
+            </header>
+            <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html" style="text-transform: uppercase;">
+                        UNIX.COMPANY
+                    </a>
+                    <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+                        <span class="navbar-toggler-icon">
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">
+                                    Home
+                                    <span class="sr-only">
+                                        (current)
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Clientes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Suport ticket
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Contactos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Reuniones
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
+            </nav>
+        </div>
+        <div class="container">
+            <table class="table table-dark" id="table">
+                <thead>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Cedula Juridica
+                        </th>
+                        <th>
+                            Pagina Web
+                        </th>
+                        <th>
+                            Direccion Fisca
+                        </th>
+                        <th>
+                            Numero de Telefono
+                        </th>
+                        <th>
+                            Sector
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="clientes">
+                </tbody>
+            </table>
+        </div>
+        <div aria-hidden="true" aria-labelledby="modalLabel" class="modal fade" id="squarespaceModal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" type="button">
+                            <span aria-hidden="true">
+                                ×
+                            </span>
+                            <span class="sr-only">
+                                Close
+                            </span>
+                        </button>
+                        <h3 class="modal-title" id="lineModalLabel">
+                            Clientes
+                        </h3>
+                    </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" >Id</label>
-                            <input type="number" class="form-control" name="txtId" id="txtId" readonly>
+                            <label for="exampleInputEmail1">
+                                Id
+                            </label>
+                            <input class="form-control" id="txtId" name="txtId" readonly="" type="number">
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nombre</label>
-                            <input type="text" class="form-control" name="txtnombre" id="txtNombre">  
+                            <label for="exampleInputEmail1">
+                                Nombre
+                            </label>
+                            <input class="form-control" id="txtNombre" name="txtnombre" type="text">
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Apellido</label>
-                            <input type="text" class="form-control" name="txtApellido" id="txtApellido">
+                            <label for="exampleInputEmail1">
+                                Cedula Juridica
+                            </label>
+                            <input class="form-control" id="txtCedulaJuridica" name="txtApellido" type="text">
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">telefono</label>
-                            <input type="text" class="form-control" name="txtTelefono" id="txtTelefono">
+                            <label for="exampleInputEmail1">
+                                Pagin Web
+                            </label>
+                            <input class="form-control" id="txtPaginaWeb" name="txtApellido" type="text">
+                            </input>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">correo</label>
-                            <input type="text" class="form-control" name="txtCorreo" id="txtCorreo">
+                            <label for="exampleInputEmail1">
+                                Direccion Fisica
+                            </label>
+                            <input class="form-control" id="txtDireccionFisica" name="txtTelefono" type="text">
+                            </input>
                         </div>
-                      
-                        <input type="submit" class="btn btn-warning" id="btnEliminar" value="Eliminar">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">
+                                Telefono
+                            </label>
+                            <input class="form-control" id="txtNumeroTelefono" name="txtCorreo" type="text">
+                            </input>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">
+                                    Sector
+                                </label>
+                                <input class="form-control" id="txtSector" name="txtCorreo" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <input class="btn btn-warning" id="btnEliminar" type="submit" value="Eliminar">
+                        </input>
                     </div>
                     <div class="modal-footer">
-                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div aria-label="group button" class="btn-group btn-group-justified" role="group">
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cerrar</button>
+                                <button class="btn btn-default" data-dismiss="modal" role="button" type="button">
+                                    Cerrar
+                                </button>
                             </div>
                             <div class="btn-group" role="group">
-                                <input type="submit" class="btn btn-default btn-hover-green"  value="Actualizar" id="btnActualizar" role="button"/>
+                                <input class="btn btn-default btn-hover-green" id="btnActualizar" role="button" type="submit" value="Actualizar"/>
                             </div>
                         </div>
                     </div>
-
+                </div>
             </div>
         </div>
-    </div>
- <script src="js/data.js"></script>
- <script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="https://code.jquery.com/jquery-3.3.1.min.js">
- </script>
- <script>
-        var table = document.getElementsByTagName("table")[0];
+        <script src="js/data.js">
+        </script>
+        <script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="https://code.jquery.com/jquery-3.3.1.min.js">
+        </script>
+        <script>
+            var table = document.getElementsByTagName("table")[0];
         var tbody = table.getElementsByTagName("tbody")[0];
         tbody.onclick = function (e) {
             var todo = "";
@@ -160,12 +252,13 @@
                 var cells = target.getElementsByTagName("td");
                 document.getElementById("txtId").value = cells[0].innerHTML;
                 document.getElementById("txtNombre").value = cells[1].innerHTML;
-                document.getElementById("txtApellido").value = cells[2].innerHTML;
-                document.getElementById("txtTelefono").value=cells[3].innerHTML;
-                document.getElementById("txtCorreo").value=cells[4].innerHTML;
+                document.getElementById("txtCedulaJuridica").value = cells[2].innerHTML;
+                document.getElementById("txtPaginaWeb").value = cells[3].innerHTML;
+                document.getElementById("txtDireccionFisica").value=cells[4].innerHTML;
+                document.getElementById("txtNumeroTelefono").value=cells[5].innerHTML;
+                 document.getElementById("txtSector").value=cells[6].innerHTML;
             }
         };
-    </script>
-    
-</body>
+        </script>
+    </body>
 </html>
