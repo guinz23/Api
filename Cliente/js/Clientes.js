@@ -10,8 +10,12 @@ $(document).ready(function() {
 });
 
 function getClientes() {
+    var token = localStorage.getItem("TOKEN");
     $.ajax({
         method: "GET",
+        headers: {
+            'Authorization': token
+        },
         url: "http://localhost:3000/clientes"
     }).done(function(response) {
         debugger;
@@ -20,6 +24,7 @@ function getClientes() {
     }).fail(function(error) {
         debugger;
         console.log(error);
+        alert("Usuario no auntenticado");
     });
 }
 
@@ -70,10 +75,14 @@ function updateClient() {
     cliente.legal_document = cedulaJuridica
     cliente.web_page = paginaWeb
     cliente.physical_address = direccionFisica
-    cliente.phone_numbe = numeroTelefono
+    cliente.phone_number = numeroTelefono
     cliente.section = sector
+    var token = localStorage.getItem("TOKEN");
     $.ajax({
         method: "PUT",
+        headers: {
+            'Authorization': token
+        },
         url: "http://localhost:3000/clientes/" + idcliente,
         data: {
             "cliente": cliente
