@@ -7,6 +7,9 @@ $(document).ready(function() {
     $('#btnActualizar').click(function(event) {
         updateClient();
     });
+    $('#crearClient').click(function(event) {
+        createCliente();
+    });
 });
 
 function getClientes() {
@@ -61,7 +64,7 @@ function deleteCliente() {
 }
 
 function updateClient() {
-    var idcliente = document.getElementById("txtId").value;
+    var idcliente= document.getElementById("txtId").value;
     var name = document.getElementById("txtNombre").value;
     var cedulaJuridica = document.getElementById("txtCedulaJuridica").value;
     var paginaWeb = document.getElementById("txtPaginaWeb").value;
@@ -101,4 +104,36 @@ function validate_fields(name, cedulaJuridica, paginaWeb, direccionFisica, numer
         alert("ingrese todos los campos requeridos");
         return;
     }
+}
+function createCliente(){
+    var name = document.getElementById("name").value;
+    var cedulaJuridica = document.getElementById("legal_document").value;
+    var paginaWeb = document.getElementById("web_page").value;
+    var direccionFisica = document.getElementById("physical_address").value;
+    var numeroTelefono = document.getElementById("phone_number").value;
+    var sector = document.getElementById("section").value;
+    var token = localStorage.getItem("TOKEN");
+    var cliente = {};
+    cliente.name = name
+    cliente.legal_document = cedulaJuridica
+    cliente.web_page = paginaWeb
+    cliente.physical_address = direccionFisica
+    cliente.phone_number = numeroTelefono
+    cliente.section = sector
+    $.ajax({
+        method: "POST",
+        headers: {
+            'Authorization': token
+        },
+        url: "http://localhost:3000/clientes/",
+        data: {
+            "cliente": cliente
+        }
+    }).done(function(response) {
+        console.log(response);
+        alert("Cliente Creado");
+        location.reload(true);
+    }).fail(function(error) {
+        console.log(error);
+    });
 }

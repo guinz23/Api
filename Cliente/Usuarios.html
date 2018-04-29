@@ -113,6 +113,7 @@
                 </div>
             </nav>
         </div>
+        <button id="crearUsuarios" class="btn btn-default">Crear Usuario</button>
         <div class="container">
             <table class="table table-dark" id="table">
                 <thead>
@@ -137,7 +138,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody id="Usuarios">
+                <tbody id="User">
                 </tbody>
             </table>
         </div>
@@ -145,16 +146,8 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" data-dismiss="modal" type="button">
-                            <span aria-hidden="true">
-                                ×
-                            </span>
-                            <span class="sr-only">
-                                Close
-                            </span>
-                        </button>
                         <h3 class="modal-title" id="lineModalLabel">
-                            Clientes
+                            Usuarios
                         </h3>
                     </div>
                     <div class="modal-body">
@@ -169,31 +162,31 @@
                             <label for="exampleInputEmail1">
                                 Usuario
                             </label>
-                            <input class="form-control" id="txtNombre" name="txtnombre" type="text">
+                            <input class="form-control" id="txtUsuario" name="txtnombre" type="text">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
                                 Contraseña
                             </label>
-                            <input class="form-control" id="txtCedulaJuridica" name="txtApellido" type="password">
+                            <input class="form-control" id="txtContraseña" name="txtApellido" type="password">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
                                 Nombre
                             </label>
-                            <input class="form-control" id="txtPaginaWeb" name="txtApellido" type="text">
+                            <input class="form-control" id="txtNombre" name="txtApellido" type="text">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
                                 Apellido
                             </label>
-                            <input class="form-control" id="txtDireccionFisica" name="txtTelefono" type="text">
+                            <input class="form-control" id="txtApellido" name="txtTelefono" type="text">
                             </input>
                         </div>
-                    </div>
+                
                     <input class="btn btn-warning" id="btnEliminar" type="submit" value="Eliminar">
                     </input>
                 </div>
@@ -215,7 +208,7 @@
 </html>
 <script src="js/redirecionamiento.js">
 </script>
-<script src="js/Clientes.js">
+<script src="js/Usuarios.js">
 </script>
 <script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="https://code.jquery.com/jquery-3.3.1.min.js">
 </script>
@@ -232,12 +225,10 @@
             if (target) {
                 var cells = target.getElementsByTagName("td");
                 document.getElementById("txtId").value = cells[0].innerHTML;
-                document.getElementById("txtNombre").value = cells[1].innerHTML;
-                document.getElementById("txtCedulaJuridica").value = cells[2].innerHTML;
-                document.getElementById("txtPaginaWeb").value = cells[3].innerHTML;
-                document.getElementById("txtDireccionFisica").value=cells[4].innerHTML;
-                document.getElementById("txtNumeroTelefono").value=cells[5].innerHTML;
-                 document.getElementById("txtSector").value=cells[6].innerHTML;
+                document.getElementById("txtUsuario").value = cells[1].innerHTML;
+                document.getElementById("txtContraseña").value = cells[2].innerHTML;
+                document.getElementById("txtNombre").value = cells[3].innerHTML;
+                document.getElementById("txtApellido").value=cells[4].innerHTML;
             }
         };
 </script>

@@ -1,6 +1,6 @@
 
 #table{
-    margin-top: 20%;
+    margin-top: 2%;
 }
 body {
     margin: 0;
@@ -20,7 +20,7 @@ body {
     align-items: center;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 5px;
+   
 }
 
 /*
@@ -172,4 +172,20 @@ li {
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css');
 .bg-dark {
     background-color: #343a40!important;
+}
+#crearClientes{
+    margin-top: 15%;
+    margin-left: 30%;
+}
+#crearUsuarios{
+ margin-top: 15%;
+  margin-left: 30%;
+}
+#containerUser{
+    margin-top: 12%;
+    margin-left: 20%;
+}
+#containerClient{
+    margin-top: 12%;
+    margin-left: 20%;
 }

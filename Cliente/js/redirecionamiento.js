@@ -8,19 +8,59 @@ $(document).ready(function() {
     $('#home').click(function(event) {
         home();
     });
-    $('#btn_login').click(function(event) {});
-    $('#btn_login').click(function(event) {});
+    $('#crearClientes').click(function(event) {
+        crearClientes();
+    });
+    $('#crearUsuarios').click(function(event) {
+        crearUsuarios();
+    });
     $('#btn_login').click(function(event) {});
 });
-
+var token = localStorage.getItem("TOKEN");
 function go_to_user() {
-    window.location.href = 'Usuarios.html';
+     if (token) {
+        window.location.href = 'Usuarios.html';
+    }else{
+         alert("usuario no logeado");
+         window.location.href = 'login.html';
+    }
 }
 
 function go_to_client() {
-    window.location.href = 'Clientes.html'
+    if (token) {
+        window.location.href = 'Clientes.html';
+    }
+    else{
+        alert("usuario no logeado");
+        window.location.href = 'login.html';
+    }
+    
 }
 
 function home() {
-    window.location.href = 'Main.html'
+    if (token) {
+        window.location.href = 'Main.html';
+    }else{
+        alert("Usuario no logeado");
+        window.location.href='login.html'
+    }
+ 
+}
+function crearClientes(){
+    if (token) {
+         window.location.href='CreateClientes.html';
+    }
+    else{
+        alert("Usuario no logeado");
+        window.location.href='login.html' 
+    }
+}
+function crearUsuarios(){
+   if (token) {
+    window.location.href='createUsuarios.html';
+}else{
+    alert("Usuario no logeado");
+    window.location.href='login.html' 
+}
+
 }
