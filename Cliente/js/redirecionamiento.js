@@ -14,7 +14,12 @@ $(document).ready(function() {
     $('#crearUsuarios').click(function(event) {
         crearUsuarios();
     });
-    $('#btn_login').click(function(event) {});
+    $('#Contactos').click(function(event) {
+  go_to_contacts();
+    });
+    $('#crearContactos').click(function(event) {
+         createContactos();
+          });
 });
 var token = localStorage.getItem("TOKEN");
 function go_to_user() {
@@ -63,4 +68,20 @@ function crearUsuarios(){
     window.location.href='login.html' 
 }
 
+}
+function go_to_contacts(){
+  if (token) {
+       window.location.href='Contacto.html'
+  }else{
+    alert("Usuario no logeado");
+    window.location.href='login.html'
+  }
+}
+function createContactos(){
+     if (token) {
+         window.location.href='crearContactos.html'; 
+     }else{
+        alert("Usuario no logeado");
+        window.location.href='login.html'
+     }
 }

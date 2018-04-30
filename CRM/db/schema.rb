@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428020757) do
+ActiveRecord::Schema.define(version: 20180429060026) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20180428020757) do
     t.string "section"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contactos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "clientes_id"
+    t.string "name"
+    t.string "lastname"
+    t.string "email"
+    t.string "phone_number"
+    t.string "job"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clientes_id"], name: "index_contactos_on_clientes_id"
   end
 
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,5 +52,6 @@ ActiveRecord::Schema.define(version: 20180428020757) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "contactos", "clientes", column: "clientes_id"
   add_foreign_key "sessions", "users"
 end

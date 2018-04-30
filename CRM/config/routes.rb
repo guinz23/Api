@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contactos
   resources :clientes
   resources :sessions
   resources :users

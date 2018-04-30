@@ -51,9 +51,13 @@ function cargartabla(listOfClientes) {
 
 function deleteCliente() {
     var idcliente = document.getElementById("txtId").value;
+    var token = localStorage.getItem("TOKEN");
     alert(idcliente);
     $.ajax({
         type: "DELETE",
+        headers: {
+            'Authorization': token
+        },
         url: "http://localhost:3000/clientes/" + idcliente,
         complete: function() {
             alert("Deleted successfully");
@@ -133,6 +137,7 @@ function createCliente(){
         console.log(response);
         alert("Cliente Creado");
         location.reload(true);
+        window.location.href='Clientes.html';
     }).fail(function(error) {
         console.log(error);
     });
