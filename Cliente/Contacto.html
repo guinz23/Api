@@ -166,34 +166,48 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
-                                Usuario
+                                id_usuario
                             </label>
-                            <input class="form-control" id="txtUsuario" name="txtnombre" type="text">
-                            </input>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">
-                                Contraseña
-                            </label>
-                            <input class="form-control" id="txtContraseña" name="txtApellido" type="password">
+                            <input readonly="" class="form-control" id="txtId_Cliente" name="txtId_Cliente" type="text">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
                                 Nombre
                             </label>
-                            <input class="form-control" id="txtNombre" name="txtApellido" type="text">
+                            <input class="form-control" id="txtname" name="txtname" type="text">
                             </input>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">
                                 Apellido
                             </label>
-                            <input class="form-control" id="txtApellido" name="txtTelefono" type="text">
+                            <input class="form-control" id="txtlastname" name="txtlastname" type="text">
                             </input>
                         </div>
-                
-                    <input class="btn btn-warning" id="btnEliminar" type="submit" value="Eliminar">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">
+                                Email
+                            </label>
+                            <input class="form-control" id="txtemail" name="txtemail" type="text">
+                            </input>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">
+                                Telefono
+                            </label>
+                            <input class="form-control" id="txtphone_number" name="txtphone_number" type="text">
+                            </input>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">
+                                Puesto
+                            </label>
+                            <input class="form-control" id="txtpuesto" name="txtpuesto" type="text">
+                            </input>
+                        </div
+                        </div>
+                    <input class="btn btn-warning" id="deleteContacto" type="submit" value="Eliminar">
                     </input>
                 </div>
                 <div class="modal-footer">
@@ -231,10 +245,12 @@
             if (target) {
                 var cells = target.getElementsByTagName("td");
                 document.getElementById("txtId").value = cells[0].innerHTML;
-                document.getElementById("txtUsuario").value = cells[1].innerHTML;
-                document.getElementById("txtContraseña").value = cells[2].innerHTML;
-                document.getElementById("txtNombre").value = cells[3].innerHTML;
-                document.getElementById("txtApellido").value=cells[4].innerHTML;
+                document.getElementById("txtId_Cliente").value = cells[1].innerHTML;
+                document.getElementById("txtname").value = cells[2].innerHTML;
+                document.getElementById("txtlastname").value = cells[3].innerHTML;
+                document.getElementById("txtemail").value=cells[4].innerHTML;
+                document.getElementById("txtphone_number").value=cells[5].innerHTML;
+                document.getElementById("txtpuesto").value=cells[6].innerHTML;
             }
         };
 </script>

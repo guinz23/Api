@@ -1,6 +1,6 @@
 class ContactosController < ApplicationController
   before_action :set_contacto, only: [:show, :update, :destroy]
- 
+ before_action :valide_User 
   # GET /contactos
   def index
     @contactos = Contacto.all
@@ -15,14 +15,24 @@ class ContactosController < ApplicationController
 
   # POST /contactos
   def create
-    @contacto = Contacto.new(contacto_params)
-
-    if @contacto.save
-      render json: @contacto, status: :created, location: @contacto
+  
+      id_cliente = contacto_params[:cliente_id]
+      name = contacto_params[:name] 
+      lastname=contacto_params[:lastname] 
+      email=contacto_params[:email]
+      phone_number=contacto_params[:phone_number]
+      job=contacto_params[:job] 
+      cliente= Cliente.where(id: id_cliente ).first
+     if cliente
+      contacto=Contacto.new(name: name, lastname: lastname, email: email, phone_number:phone_number, job: job)
+      contacto.cliente=cliente
+       if contacto.save
+      render json: contacto, status: :created
     else
-      render json: @contacto.errors, status: :unprocessable_entity
+      render json: contacto.errors, status: :unprocessable_entity
     end
   end
+end
 
   # PATCH/PUT /contactos/1
   def update
@@ -46,6 +56,6 @@ class ContactosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contacto_params
-      params.require(:contacto).permit(:clientes_id, :name, :lastname, :email, :phone_number, :job)
+      params.require(:contacto).permit(:cliente_id, :name, :lastname, :email, :phone_number, :job)
     end
 end

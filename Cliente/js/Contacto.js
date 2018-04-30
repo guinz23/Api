@@ -5,6 +5,12 @@ $(document).ready(function() {
      $('#crearCont').click(function(event) {
         createCont();
     });
+    $('#deleteContacto').click(function(event) {
+         deleteContacto();
+    })
+    $('#btnActualizar').click(function(event) {
+        updateContacto();
+   })
 });
 /**
  * 
@@ -97,6 +103,7 @@ function createCont(){
     contacto.name = name
     contacto.lastname = lastname
     contacto.email=email
+    contacto.phone_number=phone_number
     contacto.job = job
     var token = localStorage.getItem("TOKEN");
     $.ajax({
@@ -104,7 +111,7 @@ function createCont(){
         headers: {
             'Authorization': token
         },
-        url: "http://localhost:3000/contactos/",
+        url: "http://localhost:3000/contactos",
         data: {
             "contacto": contacto
         }
@@ -118,3 +125,56 @@ function createCont(){
     });
 
 }
+function deleteContacto() {
+    var idcliente = document.getElementById("txtId").value;
+    var token = localStorage.getItem("TOKEN");
+    alert(idcliente);
+    $.ajax({
+        type: "DELETE",
+        headers: {
+            'Authorization': token
+        },
+        url: "http://localhost:3000/contactos/" + idcliente,
+        complete: function() {
+            alert("Deleted successfully");
+            location.reload(true);
+        }
+    });
+    event.preventDefault();
+}
+function updateContacto() {
+    var idcontacto= document.getElementById("txtId").value;
+    var idcliente = document.getElementById("txtId_Cliente").value;
+    var  name = document.getElementById("txtname").value;
+    var  lastname = document.getElementById("txtlastname").value;
+    var email = document.getElementById("txtemail").value;
+    var phone_number = document.getElementById("txtphone_number").value;
+    var sector = document.getElementById("txtpuesto").value;
+    alert(idcliente);
+    var contacto = {};
+    contacto.cliente_id=idcliente
+    contacto.name = name
+    contacto.lastname = lastname
+    contacto.email = email
+    contacto.phone_number = phone_number
+    contacto.section = sector
+    var token = localStorage.getItem("TOKEN");
+    $.ajax({
+        method: "PUT",
+        headers: {
+            'Authorization': token
+        },
+        url: "http://localhost:3000/contactos/" + idcontacto,
+        data: {
+            "contacto": contacto
+        }
+    }).done(function(response) {
+        console.log(response);
+        alert("Usuario actualizado");
+        location.reload(true);
+    }).fail(function(error) {
+        console.log(error);
+        alert("Error al Actualizar el Contacto");
+    });
+}
+
