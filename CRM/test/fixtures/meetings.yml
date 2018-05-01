@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title_of_meeting: MyString
+  date: 2018-05-01 11:15:44
+  usuarios: one
+  virtual: MyString
+  clientes: one
+
+two:
+  title_of_meeting: MyString
+  date: 2018-05-01 11:15:44
+  usuarios: two
+  virtual: MyString
+  clientes: two

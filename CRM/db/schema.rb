@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429060026) do
+ActiveRecord::Schema.define(version: 20180430214339) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180429060026) do
   end
 
   create_table "contactos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "clientes_id"
+    t.bigint "cliente_id"
     t.string "name"
     t.string "lastname"
     t.string "email"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180429060026) do
     t.string "job"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["clientes_id"], name: "index_contactos_on_clientes_id"
+    t.index ["cliente_id"], name: "index_contactos_on_clientes_id"
   end
 
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20180429060026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_users_id"
+  end
+
+  create_table "support_tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title_of_the_problem"
+    t.string "details_of_the_problem"
+    t.string "who_reports"
+    t.bigint "clientes_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clientes_id"], name: "index_support_tickets_on_clientes_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180429060026) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "contactos", "clientes", column: "clientes_id"
+  add_foreign_key "contactos", "clientes"
   add_foreign_key "sessions", "users"
+  add_foreign_key "support_tickets", "clientes", column: "clientes_id"
 end

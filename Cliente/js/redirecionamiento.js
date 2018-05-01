@@ -15,11 +15,18 @@ $(document).ready(function() {
         crearUsuarios();
     });
     $('#Contactos').click(function(event) {
-  go_to_contacts();
+      go_to_contacts();
     });
     $('#crearContactos').click(function(event) {
          createContactos();
-          });
+     });
+     $('#Suport_ticket').click(function(event) {
+        go_to_Support_ticket();
+    });
+    $('#createTickets').click(function(event) {
+        createTickets();
+    });
+    
 });
 var token = localStorage.getItem("TOKEN");
 function go_to_user() {
@@ -47,7 +54,7 @@ function home() {
         window.location.href = 'Main.html';
     }else{
         alert("Usuario no logeado");
-        window.location.href='login.html'
+        window.location.href='login.html';
     }
  
 }
@@ -57,7 +64,7 @@ function crearClientes(){
     }
     else{
         alert("Usuario no logeado");
-        window.location.href='login.html' 
+        window.location.href='login.html' ;
     }
 }
 function crearUsuarios(){
@@ -65,7 +72,7 @@ function crearUsuarios(){
     window.location.href='createUsuarios.html';
 }else{
     alert("Usuario no logeado");
-    window.location.href='login.html' 
+    window.location.href='login.html' ;
 }
 
 }
@@ -74,7 +81,7 @@ function go_to_contacts(){
        window.location.href='Contacto.html'
   }else{
     alert("Usuario no logeado");
-    window.location.href='login.html'
+    window.location.href='login.html';
   }
 }
 function createContactos(){
@@ -82,6 +89,22 @@ function createContactos(){
          window.location.href='crearContactos.html'; 
      }else{
         alert("Usuario no logeado");
-        window.location.href='login.html'
+        window.location.href='login.html';
      }
+}
+function go_to_Support_ticket(){
+    if (token) {
+         window.location.href='support_tickets.html';
+    }else{
+        alert("Usuario no logeado");
+        window.location.href='login.html';
+    }
+}
+function createTickets(){
+    if (token) {
+          window.location.href='createSupportTickets.html';
+    }else{
+        alert("Usuario no logeado");
+        window.location.href='login.html'; 
+    }
 }

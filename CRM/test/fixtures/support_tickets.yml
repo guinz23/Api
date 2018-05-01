@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title_of_the_problem: MyString
+  details_of_the_problem: MyString
+  who_reports: MyString
+  clientes: one
+  state: MyString
+
+two:
+  title_of_the_problem: MyString
+  details_of_the_problem: MyString
+  who_reports: MyString
+  clientes: two
+  state: MyString
