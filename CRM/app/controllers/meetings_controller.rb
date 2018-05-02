@@ -15,14 +15,22 @@ class MeetingsController < ApplicationController
 
   # POST /meetings
   def create
-    @meeting = Meeting.new(meeting_params)
-
-    if @meeting.save
-      render json: @meeting, status: :created, location: @meeting
-    else
-      render json: @meeting.errors, status: :unprocessable_entity
-    end
+   
+    title_of_meeting = meeting_params[:title_of_meeting]
+    is_virtual = meeting_params[:is_virtual] 
+    date=meeting_params[:date] 
+    user_id=meeting_params[:user_id] 
+    user= User.where(id: user_id ).first
+   if user
+    meeting=Meeting.new(title_of_meeting: title_of_meeting, date: date, user_id: user_id, is_virtual:is_virtual)
+    meeting.user=user
+     if meeting.save
+    render json: meeting, status: :created
+  else
+    render json: meeting.errors, status: :unprocessable_entity
   end
+end
+end
 
   # PATCH/PUT /meetings/1
   def update
@@ -46,6 +54,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def meeting_params
-      params.require(:meeting).permit(:title_of_meeting, :date, :usuarios_id, :virtual, :clientes_id)
+      params.require(:meeting).permit(:title_of_meeting, :date, :user_id, :is_virtual)
     end
 end

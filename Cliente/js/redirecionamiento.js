@@ -26,6 +26,12 @@ $(document).ready(function() {
     $('#createTickets').click(function(event) {
         createTickets();
     });
+    $('#Reuniones').click(function(event) {
+        go_to_Meeting();
+    });
+    $('#crearReuniones').click(function(event) {
+         createMeeting();
+    });
     
 });
 var token = localStorage.getItem("TOKEN");
@@ -106,5 +112,21 @@ function createTickets(){
     }else{
         alert("Usuario no logeado");
         window.location.href='login.html'; 
+    }
+}
+function  go_to_Meeting (){
+  if (token) {
+          window.location.href='Reuniones.html';
+  } else {
+    alert("Usuario no logeado");
+    window.location.href='login.html';   
+  }
+}
+function createMeeting(){
+    if (token) {
+        window.location.href='createReuniones.html';
+    }else{
+        alert("Usuario no logeado");
+        window.location.href='login.html';  
     }
 }

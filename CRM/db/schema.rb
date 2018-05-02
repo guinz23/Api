@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430214339) do
+ActiveRecord::Schema.define(version: 20180501181900) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20180430214339) do
     t.index ["cliente_id"], name: "index_contactos_on_clientes_id"
   end
 
+  create_table "meetings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title_of_meeting"
+    t.string "date"
+    t.bigint "users_id"
+    t.string "is_virtual"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_meetings_on_users_id"
+  end
+
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "token"
@@ -47,11 +57,11 @@ ActiveRecord::Schema.define(version: 20180430214339) do
     t.string "title_of_the_problem"
     t.string "details_of_the_problem"
     t.string "who_reports"
-    t.bigint "clientes_id"
+    t.bigint "cliente_id"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["clientes_id"], name: "index_support_tickets_on_clientes_id"
+    t.index ["cliente_id"], name: "index_support_tickets_on_clientes_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180430214339) do
   end
 
   add_foreign_key "contactos", "clientes"
+  add_foreign_key "meetings", "users", column: "users_id"
   add_foreign_key "sessions", "users"
-  add_foreign_key "support_tickets", "clientes", column: "clientes_id"
+  add_foreign_key "support_tickets", "clientes"
 end

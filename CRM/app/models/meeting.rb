@@ -1,4 +1,3 @@
 class Meeting < ApplicationRecord
-  belongs_to :usuarios
-  belongs_to :clientes
+    belongs_to :user
 end
