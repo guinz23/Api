@@ -49,9 +49,13 @@ function cargartabla(listOfUser) {
 
 function deleteUser() {
     var idcliente = document.getElementById("txtId").value;
+    var token = localStorage.getItem("TOKEN");
     alert(idcliente);
     $.ajax({
         type: "DELETE",
+        headers: {
+            'Authorization': token
+        },
         url: "http://localhost:3000/users/" + idcliente,
         complete: function() {
             alert("Deleted successfully");

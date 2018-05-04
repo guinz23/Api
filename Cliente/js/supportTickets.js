@@ -1,8 +1,8 @@
 $(document).ready(function() {
     alert("lectura de datos completada");
-     getSupportTickets();
-     getClientes();
-     $('#createSu').click(function(event) {
+    getSupportTickets();
+    getClientes();
+    $('#createSu').click(function(event) {
         createSupportTickets();
     });
     $('#btnEliminar').click(function(event) {
@@ -11,9 +11,11 @@ $(document).ready(function() {
     $('#btnActualizar').click(function(event) {
         updateSupportTickets();
     });
-  
 });
-function getSupportTickets(){
+/*
+ obtiene todos los support tickest con una llamada al servidor
+*/
+function getSupportTickets() {
     var token = localStorage.getItem("TOKEN");
     $.ajax({
         method: "GET",
@@ -29,10 +31,11 @@ function getSupportTickets(){
         debugger;
         console.log(error);
         alert("Usuario no auntenticado");
-    }); 
-
+    });
 }
-
+/*
+ carga una tabla con los supporTickets disponibles  en la interfaz
+*/
 function cargartabla(listOfSupportTickets) {
     listOfSupportTickets.forEach(function(element) {
         debugger;
@@ -49,12 +52,15 @@ function cargartabla(listOfSupportTickets) {
         $("#tickets").append(row);
     });
 }
+/*
+ carga los clientes para poder ser usados en la interfaz de usuario 
+*/
 function cargarclientes(listOfClientes) {
     listOfClientes.forEach(function(element) {
         debugger;
-      var opcciones=document.createElement("option");
-      opcciones.setAttribute("value",element.id);
-      opcciones.setAttribute("label",element.name);
+        var opcciones = document.createElement("option");
+        opcciones.setAttribute("value", element.id);
+        opcciones.setAttribute("label", element.name);
         $("#cliente").append(opcciones);
     });
 }
@@ -79,41 +85,42 @@ function getClientes() {
         alert("Usuario no auntenticado");
     });
 }
-function createSupportTickets(){
-    
-     var title_of_the_problem=document.getElementById("title_of_problem").value;
-     var  details_of_the_problem=document.getElementById("details_of_problem").value;
-     var  who_reports=document.getElementById("who_report").value;
-     var id_cliente=document.getElementById("cliente").value;
-     var state=document.getElementById("state").value;
-     var token =localStorage.getItem("TOKEN");
-     var support_ticket = {};
+/*
+ envia una solicitud al servidor para poder crear un nuevo suppot tickets
+*/
+function createSupportTickets() {
+    var title_of_the_problem = document.getElementById("title_of_problem").value;
+    var details_of_the_problem = document.getElementById("details_of_problem").value;
+    var who_reports = document.getElementById("who_report").value;
+    var id_cliente = document.getElementById("cliente").value;
+    var state = document.getElementById("state").value;
+    var token = localStorage.getItem("TOKEN");
+    var support_ticket = {};
     support_ticket.title_of_the_problem = title_of_the_problem
     support_ticket.details_of_the_problem = details_of_the_problem
-    support_ticket.who_reports =  who_reports
-    support_ticket.cliente_id= id_cliente
-    support_ticket.state=state
-
+    support_ticket.who_reports = who_reports
+    support_ticket.cliente_id = id_cliente
+    support_ticket.state = state
     $.ajax({
-       method: "POST",
-       headers: {
-        'Authorization': token
-    },
-    
-    url: "http://localhost:3000/support_tickets",
-    data: {
-        "support_ticket": support_ticket
-    }
-     }).done(function(response) {
-    debugger;
-    console.log(response);
-     alert("support_ticket creado");
-     }).fail(function(error) {
-    debugger;
-    console.log(error);
-    alert("Usuario no auntenticado"+error);
+        method: "POST",
+        headers: {
+            'Authorization': token
+        },
+        url: "http://localhost:3000/support_tickets",
+        data: {
+            "support_ticket": support_ticket
+        }
+    }).done(function(response) {
+        debugger;
+        console.log(response);
+        alert("support_ticket creado");
+    }).fail(function(error) {
+        debugger;
+        console.log(error);
+        alert("Usuario no auntenticado" + error);
     });
 }
+
 function deleteSupportTickets() {
     var idcliente = document.getElementById("txtId").value;
     var token = localStorage.getItem("TOKEN");
@@ -131,16 +138,17 @@ function deleteSupportTickets() {
     });
     event.preventDefault();
 }
+
 function updateSupportTickets() {
-    var idcontacto= document.getElementById("txtId").value;
+    var idcontacto = document.getElementById("txtId").value;
     var tiTle_of_problem = document.getElementById("txttitle_of_problem").value;
-    var  details_of_problem = document.getElementById("txtdetails_of_problem").value;
-    var  who_report = document.getElementById("txtwho_report").value;
+    var details_of_problem = document.getElementById("txtdetails_of_problem").value;
+    var who_report = document.getElementById("txtwho_report").value;
     var idcliente = document.getElementById("txtidcliente").value;
     var state = document.getElementById("txtstate").value;
-   alert(idcliente);
+    alert(idcliente);
     var support_ticket = {};
-    support_ticket.title_of_the_problem=tiTle_of_problem
+    support_ticket.title_of_the_problem = tiTle_of_problem
     support_ticket.details_of_the_problem = details_of_problem
     support_ticket.who_reports = who_report
     support_ticket.cliente_id = idcliente

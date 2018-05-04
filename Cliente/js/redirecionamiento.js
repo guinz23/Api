@@ -32,7 +32,9 @@ $(document).ready(function() {
     $('#crearReuniones').click(function(event) {
          createMeeting();
     });
-    
+    $('#exit').click(function(event) {
+    logout();
+   });
 });
 var token = localStorage.getItem("TOKEN");
 function go_to_user() {
@@ -129,4 +131,29 @@ function createMeeting(){
         alert("Usuario no logeado");
         window.location.href='login.html';  
     }
+}
+function logout(){
+
+    var r = confirm("Press a button!");
+    if (r == true) {
+        alert( "You pressed OK!");
+         deleteSeccion();
+         localStorage.setItem("TOKEN",""); 
+        window.location.href='login.html';  
+    } else {
+        alert("You pressed Cancel!");
+    }
+     
+}
+function deleteSeccion() {
+    var idSeccion = localStorage.getItem("IDSECCION");
+    alert(idSeccion);
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:3000/sessions/" +idSeccion,
+        complete: function() {
+            alert("Deleted Seccion successfully");
+        }
+    });
+    event.preventDefault();
 }

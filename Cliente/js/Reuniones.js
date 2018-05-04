@@ -109,8 +109,12 @@ function createMeeting(){
 function deleteMeeting() {
     var idReunion = document.getElementById("txtId").value;
     alert(idReunion);
+    var token = localStorage.getItem("TOKEN");
     $.ajax({
         type: "DELETE",
+        headers: {
+            'Authorization': token
+        },
         url: "http://localhost:3000/meetings/" + idReunion,
         complete: function() {
             alert("Deleted successfully");

@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :update, :destroy]
-
+  before_action :valide_User
   # GET /meetings
   def index
     @meetings = Meeting.all

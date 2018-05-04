@@ -1,6 +1,6 @@
 class SupportTicketsController < ApplicationController
   before_action :set_support_ticket, only: [:show, :update, :destroy]
- 
+  before_action :valide_User
   # GET /support_tickets
   def index
     @support_tickets = SupportTicket.all

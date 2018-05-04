@@ -4,7 +4,9 @@ $(document).ready(function() {
         createSession();
     });
 });
-
+/**
+ * 
+ */
 function validate_Fields() {
     var username = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -17,7 +19,9 @@ function validate_Fields() {
         alert(error);
     }
 }
-
+/**
+ *  crea  una session para el usuario logeado
+ */
 function createSession() {
     var username = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -26,6 +30,7 @@ function createSession() {
     session.password = password;
     $.ajax({
         method: "POST",
+        
         url: "http://localhost:3000/sessions",
         data: {
             "session": session
@@ -37,7 +42,9 @@ function createSession() {
             location.reload(true);
         } else {
             alert("usuario registrado");
+            console.log(response);
             localStorage.setItem("TOKEN", response.token);
+            localStorage.setItem("IDSECCION",response.id);
             window.location.href = 'Main.html?token=' + encodeURIComponent(response.token);
         }
     }).fail(function(error) {

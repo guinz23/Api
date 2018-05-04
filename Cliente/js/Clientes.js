@@ -11,7 +11,9 @@ $(document).ready(function() {
         createCliente();
     });
 });
-
+/**
+ * obtenemos os clientes con una llamada al servidor
+ */
 function getClientes() {
     var token = localStorage.getItem("TOKEN");
     $.ajax({
@@ -30,7 +32,10 @@ function getClientes() {
         alert("Usuario no auntenticado");
     });
 }
-
+/**
+ * carga los clientes en una tabla en la parte de la intez de suuario 
+ * @param {*} listOfClientes 
+ */
 function cargartabla(listOfClientes) {
     listOfClientes.forEach(function(element) {
         debugger;
@@ -48,7 +53,9 @@ function cargartabla(listOfClientes) {
         $("#clientes").append(row);
     });
 }
-
+/**
+  hace una consulata al servidor para validar si cuenta con los permisos y poder eliminar el cliente
+ */
 function deleteCliente() {
     var idcliente = document.getElementById("txtId").value;
     var token = localStorage.getItem("TOKEN");
@@ -66,7 +73,9 @@ function deleteCliente() {
     });
     event.preventDefault();
 }
-
+/**
+ actualiza a los  clientes
+ */
 function updateClient() {
     var idcliente= document.getElementById("txtId").value;
     var name = document.getElementById("txtNombre").value;
@@ -102,13 +111,24 @@ function updateClient() {
         console.log(error);
     });
 }
-
+/**
+ * Valida que  los campos requeridos esten en llenos
+ * @param {*} name 
+ * @param {*} cedulaJuridica 
+ * @param {*} paginaWeb 
+ * @param {*} direccionFisica 
+ * @param {*} numeroTelefono 
+ * @param {*} sector 
+ */
 function validate_fields(name, cedulaJuridica, paginaWeb, direccionFisica, numeroTelefono, sector) {
     if (name == "" && cedulaJuridica == "" && paginaWeb == "" && direccionFisica == "" && numeroTelefono == "" && sector == "") {
         alert("ingrese todos los campos requeridos");
         return;
     }
 }
+/**
+ *  crea los clientes sen el servidor
+ */
 function createCliente(){
     var name = document.getElementById("name").value;
     var cedulaJuridica = document.getElementById("legal_document").value;

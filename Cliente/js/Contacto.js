@@ -89,7 +89,7 @@ function getClientes() {
     });
 }
 /**
- * 
+ * crea contactos
  */
 function createCont(){
     var name = document.getElementById("name").value;
@@ -125,6 +125,9 @@ function createCont(){
     });
 
 }
+/**
+ * elemina los contactos con una consuta al servidor
+ */
 function deleteContacto() {
     var idcliente = document.getElementById("txtId").value;
     var token = localStorage.getItem("TOKEN");
@@ -142,6 +145,9 @@ function deleteContacto() {
     });
     event.preventDefault();
 }
+/**
+ * actualiza los contactos en el servidor co la consulat realixzada desde el cliente
+ */
 function updateContacto() {
     var idcontacto= document.getElementById("txtId").value;
     var idcliente = document.getElementById("txtId_Cliente").value;
@@ -157,7 +163,7 @@ function updateContacto() {
     contacto.lastname = lastname
     contacto.email = email
     contacto.phone_number = phone_number
-    contacto.section = sector
+    contacto.job = sector
     var token = localStorage.getItem("TOKEN");
     $.ajax({
         method: "PUT",

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :set_session, only: [:destroy]
   require 'digest/md5'
-
   # POST /sessions
   def create
     username1 = session_params[:username]
